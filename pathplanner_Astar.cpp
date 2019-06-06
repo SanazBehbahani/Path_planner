@@ -23,6 +23,15 @@ class Map:
     {0, 1, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0}
     };
+
+    vector <vector<int>> manhattan_heuristic = 
+    {
+    {9, 8, 7, 6, 5, 4},
+    {8, 7, 6, 5, 4, 3},
+    {7, 6, 5, 4, 3, 2},
+    {6, 5, 4, 3, 2, 1},
+    {5, 4, 3, 2, 1, 0}
+    };
 };
 
 /* TODO: Define a Planner class
