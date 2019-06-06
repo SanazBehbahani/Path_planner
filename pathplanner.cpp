@@ -79,7 +79,10 @@ void search (Map map, Planner planner)
 {
     // Create a closed 2D array filled with 0s and 1 as its first element
     vector <vector <int>> closed (map.mapHeight, vector <int> (map.mapWidth));
-    closed [planner.start[0]][planner.start[1]];
+    closed [planner.start[0]][planner.start[1]] = 1;
+
+    // Create expand array filled with -1
+    vector <vector <int>> expand (map.mapHeight, vector <int> (map.mapWidth, -1));
     
     // Define the triplet
     int x = planner.start[0];
@@ -93,6 +96,9 @@ void search (Map map, Planner planner)
     // Flags
     bool found = false;
     bool resign = false;
+
+    // Counter
+    int count = 0;
 
     int x2;
     int y2;
@@ -117,6 +123,10 @@ void search (Map map, Planner planner)
 	    g = next [0];
 	    x = next [1];
 	    y = next [2];
+
+	    // Fill the expand vectors with count
+	    expand [x][y] = count;
+	    count += 1;
 
 	    // Check if we reached the goal
     	    if (x == planner.goal[0] && y == planner.goal[1]){
@@ -143,7 +153,8 @@ void search (Map map, Planner planner)
 	};
 
     };
-
+    // Print the expansion list 
+    print2DVector (expand);
     
 };
     
