@@ -29,6 +29,23 @@ using namespace std;
    Inside the Planner class, define the start, goal, cost, movements, and movements_arrows
    Note: The goal should be defined it terms of the mapWidth and mapHeight
 */
+    class Planner: Map
+    {
+	// Access specifier
+	public:
+	// Data members
+	int start [2] = {0, 0};
+	int goal [2] = {4, 5};
+	int cost = 1;
+	vector <vector <int>> movements = 
+	{
+	{-1, 0},
+	{0, -1},
+	{1, 0},
+	{0, 1}
+	};
+	string movement_arrows [4] = {"^", "<", "v", ">"};
+    };
 
 /* TODO: Define a print2DVector function which will print 2D vectors of any data type
    Example
