@@ -100,6 +100,7 @@ void search (Map map, Planner planner)
     int x = planner.start[0];
     int y = planner.start[1];
     int g = 0;
+    int f = g + map.manhattan_heuristic [x][y];
 
     // Store the expansion
     vector <vector <int>> open;
