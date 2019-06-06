@@ -155,7 +155,8 @@ void search (Map map, Planner planner)
 		    if (x2 >= 0 && x2 < map.grid.size() && y2 >= 0 && y2 < map.grid[0].size()){
 			if (closed [x2][y2] == 0 && map.grid [x2][y2] == 0){
 			    int g2 = g + planner.cost;
-			    open.push_back ({g2, x2, y2});
+			    f = g2 + map.manhattan_heuristic[x2][y2]; 
+			    open.push_back ({f, g2, x2, y2});
 			    closed [x2][y2] = 1; 
 			    action [x2][y2] = i;
 			};
