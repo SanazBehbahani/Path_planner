@@ -8,44 +8,44 @@ using namespace std;
 /* TODO: Define a Map class
    Inside the map class, define the mapWidth, mapHeight and grid as a 2D vector
 */
-    class Map:
+class Map:
+{
+    // Access specifier
+    public:
+    // Data members
+    const static int mapWidth = 6;
+    const static int mapHeight = 5;
+    vector <vector<int>> grid = 
     {
-	// Access specifier
-	public:
-	// Data members
-	const static int mapWidth = 6;
-	const static int mapHeight = 5;
-	vector <vector<int>> grid = 
-        {
-	{0, 1, 0, 0, 0, 0},
-	{0, 1, 0, 0, 0, 0},
-	{0, 1, 0, 0, 0, 0},
-	{0, 1, 0, 0, 0, 0},
-	{0, 0, 0, 1, 1, 0}
-	};
+    {0, 1, 0, 0, 0, 0},
+    {0, 1, 0, 0, 0, 0},
+    {0, 1, 0, 0, 0, 0},
+    {0, 1, 0, 0, 0, 0},
+    {0, 0, 0, 1, 1, 0}
     };
+};
 
 /* TODO: Define a Planner class
    Inside the Planner class, define the start, goal, cost, movements, and movements_arrows
    Note: The goal should be defined it terms of the mapWidth and mapHeight
 */
-    class Planner: Map
+class Planner: Map
+{
+    // Access specifier
+    public:
+    // Data members
+    int start [2] = {0, 0};
+    int goal [2] = {4, 5};
+    int cost = 1;
+    vector <vector <int>> movements = 
     {
-	// Access specifier
-	public:
-	// Data members
-	int start [2] = {0, 0};
-	int goal [2] = {4, 5};
-	int cost = 1;
-	vector <vector <int>> movements = 
-	{
-	{-1, 0},
-	{0, -1},
-	{1, 0},
-	{0, 1}
-	};
-	string movement_arrows [4] = {"^", "<", "v", ">"};
+    {-1, 0},
+    {0, -1},
+    {1, 0},
+    {0, 1}
     };
+    string movement_arrows [4] = {"^", "<", "v", ">"};
+};
 
 /* TODO: Define a print2DVector function which will print 2D vectors of any data type
    Example
@@ -63,6 +63,17 @@ using namespace std;
    c d
    Hint: You need to use templates
 */
+template <typename T>
+void print2DVector (T Vec)
+{
+    for (int i = 0; i < Vec.size(); ++i){
+        for (int j = 0; j < Vec[0].size(); ++j){
+	    cout << Vec [i][j] << ' ';
+        };
+	cout << endl;
+    };
+};
+    
 
 /*############ Don't modify the main function############*/
 int main()
